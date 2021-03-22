@@ -23,27 +23,27 @@ public class MyList {
     public void getElement(int index){
         System.out.println(array[index-1]);
     }
-    public void setElement(int value, int index){
-        if (index <= this.size) {
+    public void setElement(int value, int index){  
+        if (index <= this.size) { // Space - O(1), Time - O(1)
             if (value >= 0) {
                 this.array[index - 1] = value;
             }
         }
-        else {
-            int[] array2 = new int[index-this.size];
-            for (int i = 0; i < index-this.size; i++) {
+        else { // Space - O(n), Time - O(n)
+            int[] array2 = new int[index-this.size]; // Space - O(1), Time - O(1)
+            for (int i = 0; i < index-this.size; i++) { // Space - O(n), Time - O(n)
                 array2[i]=0;
             }
-            int[] array3 = new int[this.size+array2.length];
+            int[] array3 = new int[this.size+array2.length]; // Space - O(1), Time - O(1)
             int count = 0;
-            for(int i = 0; i<this.size; i++) {
+            for(int i = 0; i<this.size; i++) { // Space - O(n), Time - O(n)
                 array3[i] = array[i];
                 count++;
             }
-            for(int j = 0;j<array2.length;j++) {
+            for(int j = 0;j<array2.length;j++) { // Space - O(n), Time - O(n)
                 array3[count++] = array2[j];
             }
-            if (value >= 0) {
+            if (value >= 0) { // Space - O(1), Time - O(1)
                 array3[index - 1] = value;
             }
             this.array = array3;
